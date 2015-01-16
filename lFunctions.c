@@ -61,23 +61,34 @@ insertEnd(int val, Head *list)
     list->size++;
   }
 }
-/*
+
 void insertMiddle(int val, int loc, Head *list)
 {
   //variables
   int i;
   Node *nd, *ptr1, *ptr2;
   //ops
-  i = 0;
   if(loc == 0) insertFront(val, list);
+  if(loc == list->size) insertEnd(val, list);
+  else if(loc > list->size) return;
   nd = makeNode(val);
   ptr1 = list->front;
-  if(ptr1 == NULL) return;
-  else
+  ptr2 = list->front->next;
+  i = 1;
+  while(ptr2 != NULL)
   {
+    if(i == loc)
+    {
+      ptr1->next = nd;
+      nd->next = ptr2;
+      list->size++;
+      return;
+    }
+    ptr1 = ptr1->next;
+    ptr2 = ptr2->next;
     i++;
-*/
-
+  }
+}
 //debugging
 void
 printTable(Head *list)
@@ -86,6 +97,7 @@ printTable(Head *list)
   Node *ptr;
   //ops
   printf("Printing Table\n");
+  printf("Table size: %d\n", list->size);
   ptr = list->front;
   while(ptr != NULL)
   {
@@ -113,6 +125,8 @@ interface(Head *list)
       case 2:
 	insertEnd(9, list);
 	break;
+      case 3:
+        insertMiddle(94, 3, list);
     }
   }
 }     

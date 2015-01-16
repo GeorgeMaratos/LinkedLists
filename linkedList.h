@@ -17,6 +17,6 @@ Head *makeList();
 Node *makeNode(int val);
 void insertFront(int val, Head *list);
 void insertEnd(int val, Head *list);
-//void insertMiddle(int val, int loc, Head *list);
+void insertMiddle(int val, int loc, Head *list);
 void printTable(Head *list);
 void interface(Head *list);
