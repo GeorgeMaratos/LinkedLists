@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include"linkedList.h"
 
+//Singly linked lists
 //memory allocation
 
 Head*
