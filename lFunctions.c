@@ -41,7 +41,9 @@ insertFront(int val, Head *list)
   ptr = list->front;
   list->front = nd;
   list->front->next = ptr;
+  list->size++;
 }
+
 void 
 insertEnd(int val, Head *list)
 {
@@ -56,6 +58,7 @@ insertEnd(int val, Head *list)
     while(ptr->next != NULL)
       ptr = ptr->next;
     ptr->next = nd;
+    list->size++;
   }
 }
 /*
@@ -73,4 +76,43 @@ void insertMiddle(int val, int loc, Head *list)
   else
   {
     i++;
-*/     
+*/
+
+//debugging
+void
+printTable(Head *list)
+{
+  //variables
+  Node *ptr;
+  //ops
+  ptr = list->front;
+  while(ptr != NULL)
+  {
+    printf("[%d] -> ", ptr->val);
+    ptr = ptr->next;
+  }
+}
+
+void
+interface(Head *list)
+{
+  //variables
+  int input;
+  //ops
+  for(;;)
+  {
+    printf("Enter Value: ");
+    scanf("%d", &input);
+    switch(input)
+    {
+      case 0: return;
+      case 1:
+	insertFront(5, list);
+	break;
+      case 2:
+	insertEnd(5, list);
+	break;
+    }
+  }
+  printTable(list);
+}     
