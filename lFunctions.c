@@ -85,6 +85,7 @@ printTable(Head *list)
   //variables
   Node *ptr;
   //ops
+  printf("Printing Table\n");
   ptr = list->front;
   while(ptr != NULL)
   {
@@ -110,9 +111,8 @@ interface(Head *list)
 	insertFront(5, list);
 	break;
       case 2:
-	insertEnd(5, list);
+	insertEnd(9, list);
 	break;
     }
   }
-  printTable(list);
 }     

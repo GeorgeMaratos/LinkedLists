@@ -11,4 +11,5 @@ main()
   printf("Linked List Debugger\n");
   list = malloc(sizeof(Head));
   interface(list); 
+  if(DEBUG) printTable(list);
 }
